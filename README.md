@@ -15,6 +15,7 @@ In this project we will be using:
 (b) Google Maps API
 (c) HTML
 (d) CSS
+(e) Jasmine 
 
 ## User Stories
 
@@ -29,6 +30,6 @@ I want to be able to see their location
 
 As a user
 So that I can meet my friend
-I want to be able to meet them at a halfway point based on our individual locations 
+I want to be able to meet them at a halfway point based on our individual locations
 
 ````
