@@ -1,0 +1,102 @@
+<html>
+
+<head>
+  <title>Geocoding service</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <style>
+    /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+
+    #map {
+      height: 50%;
+    }
+    /* Optional: Makes the sample page fill the window. */
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    #floating-panel {
+      position: absolute;
+      top: 80px;
+      left: 25%;
+      z-index: 5;
+      background-color: #fff;
+      padding: 5px;
+      border: 1px solid #999;
+      text-align: center;
+      font-family: 'Roboto', 'sans-serif';
+      line-height: 30px;
+      padding-left: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="floating-panel">
+    <input id="address" type="textbox" value="se83js">
+    <input id="address2" type="textbox" value="makers academy london">
+    <input id="submit" type="button" value="Geocode">
+  </div>
+  <div id="map"></div>
+  <script>
+
+
+      function parseUsersLocation() {
+      fetch("http://ip-api.com/json").then(res => res.json()).then((out) => {
+        initMap(out);
+      }).catch(err => {
+        throw err
+      });
+    }
+
+
+    function initMap(currentLocation) {
+      console.log(currentLocation["lat"], currentLocation["lon"]);
+
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 8,
+        center: {
+          lat: currentLocation["lat"],
+          lng: currentLocation["lon"]
+        }
+      });
+      var geocoder = new google.maps.Geocoder();
+
+      document.getElementById('submit').addEventListener('click', function () {
+        geocodeAddress(geocoder, map, 'address');
+        geocodeAddress(geocoder, map, 'address2');
+      });
+    }
+
+    function geocodeAddress(geocoder, resultsMap, element) {
+      var address = document.getElementById(element).value;
+
+      geocoder.geocode({
+        'address': address
+      }, function (results, status) {
+        if (status === 'OK') {
+          console.log(results)
+          resultsMap.setCenter(results[0].geometry.location);
+          var marker = new google.maps.Marker({
+            map: resultsMap,
+            position: results[0].geometry.location
+          });
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+    }
+  </script>
+
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzf3_dclSEPO7zAq7LW8IaJPyAtnyGrqo
+    &callback=parseUsersLocation">
+  </script>
+</body>
+
+</div>
+</html>
