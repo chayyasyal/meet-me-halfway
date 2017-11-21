@@ -1,0 +1,24 @@
+{
+  "name": "meet-me-halfway",
+  "version": "1.0.0",
+  "private": "true",
+  "description": "Week 9 team project. We will be using Javascript to create a web app called Meet Me Halfway. This app will be able to help two users find a halfway point, based on their individual locations, where they will be able to meet up. We will be creating this digital product and bring it to MVP level ready to present back to our cohort.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chayyasyal/meet-me-halfway.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chayyasyal/meet-me-halfway/issues"
+  },
+  "homepage": "https://github.com/chayyasyal/meet-me-halfway#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0"
+  }
+}
