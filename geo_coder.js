@@ -20,6 +20,7 @@
       });
     }
 
+
     setMarker = function (address) {
       _geoCoder.geocode({
         'address': address
@@ -29,6 +30,8 @@
             map: _map,
             position: results[0].geometry.location
           });
+          _map.setCenter(results[0].geometry.location);
+          
           return [results[0].geometry.location.lat(), results[0].geometry.location.lng()]
         } else {
           alert('Geocode was not successful.Could not set marker for the following reason: ' + status);
