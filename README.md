@@ -11,12 +11,15 @@ Week 9 team project. We will be using Javascript to create a web app called Meet
 ## Technologies used
 
 In this project we will be using:
-(a) Javascript
-(b) Google Maps API
-(c) HTML
-(d) CSS
-(e) Jasmine
-(f) dotenv
+1. Javascript
+2. Google Maps API
+3. Google Places API
+4. Google Distance API
+5. Google Javascript API
+6. HTML
+7. CSS
+8. Jasmine
+9. dotenv
 
 ## User Stories
 
