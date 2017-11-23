@@ -4,7 +4,6 @@
 
     addMarkerToList = function(marker){
       _markersList.push(marker);
-      console.log("marker list",_markersList)
     }
 
     clearAllMarkersFromMap = function(){

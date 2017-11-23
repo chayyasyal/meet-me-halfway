@@ -23,9 +23,7 @@ function initializeProject() {
         .then(function(midpoint) {
           console.log(midpoint, "in eventlistener")
           PlaceSearcher(map, midpoint, new Filters().getTypeOfPlace(cafe, restaurant, bar)).then(function(results) {
-              console.log("in promise2222", results);
-              console.log("in promise length", results.length)
-
+              console.log("in Placesearcher promise", results);
             })
 
             .catch(function(status) {

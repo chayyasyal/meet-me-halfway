@@ -1,8 +1,8 @@
 (function (exports) {
-  
+
     exports.GoogleMapGenerator = function (currentLocation) {
       var _currentLocation = currentLocation;
-  
+
       //takes the current location from an api call to ip-api.com
       initMap = function () {
         return new google.maps.Map(document.getElementById('map'), {
@@ -13,17 +13,10 @@
           }
         });
       }
-  
-      setLocation = function (location) {
-        _currentLocation = location;
-      }
-  
-  
+
       return {
-        initMap: initMap,
-        setLocation: setLocation
-  
+        initMap: initMap
+
       };
     };
   })(this);
-  
