@@ -56,26 +56,10 @@
       }); });
     }
 
-
-    setCenterTo = function (address) {
-      _geoCoder.geocode({
-        'address': address
-      }, function (results, status) {
-        if (status === 'OK') {
-          _map.setCenter(results[0].geometry.location);
-        } else {
-          alert('Geocode was not successful. Could not set center for the following reason: ' + status);
-        }
-      });
-    }
-
-
-
     return {
       returnLatLon: returnLatLon,
       setMarker: setMarker,
-      calculateMiddlePoint: calculateMiddlePoint,
-      setCenterTo: setCenterTo
+      calculateMiddlePoint: calculateMiddlePoint
     }
   };
 

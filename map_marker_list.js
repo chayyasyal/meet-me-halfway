@@ -10,6 +10,7 @@
       for(var i=0; i<_markersList.length; i++){
         _markersList[i].destroyMarker();
       }
+      _markersList = []
     }
 
     return {addMarkerToList:addMarkerToList,

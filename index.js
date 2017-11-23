@@ -6,8 +6,16 @@ function initializeProject() {
 
     var map = mapper.initMap();
 
+    var getTopFiveplaces = function(results, map, markersList) {
+      for (var i = 0; i < results.length && i < 5; i++) {
+        var marker = new MapMarker(map, results[i].geometry.location);
+        markersList.addMarkerToList(marker);
+      };
+    };
+
 
     document.getElementById('submit').addEventListener('click', function() {
+      markersList.clearAllMarkersFromMap();
       var geocoder = new GeoCoder(map);
       var address1 = document.getElementById('address1').value;
       var address2 = document.getElementById('address2').value;
@@ -21,9 +29,13 @@ function initializeProject() {
 
       geocoder.calculateMiddlePoint(address1, address2)
         .then(function(midpoint) {
-          console.log(midpoint, "in eventlistener")
+          console.log(midpoint, "in eventlistener");
+          map.setCenter(new google.maps.LatLng(parseFloat(midpoint[0]), parseFloat(midpoint[1])));
+          map.setZoom(15);
           PlaceSearcher(map, midpoint, new Filters().getTypeOfPlace(cafe, restaurant, bar)).then(function(results) {
               console.log("in Placesearcher promise", results);
+              getTopFiveplaces(results, map, markersList);
+
             })
 
             .catch(function(status) {
@@ -32,23 +44,6 @@ function initializeProject() {
         }).catch(function(status) {
           alert(status);
         });
-
     });
   });
 }
-//       then(function(potPlaces){
-//         console.log("a list of potential places");
-//           console.log(potPlaces);
-//           console.log(potPlaces.length, "length")
-//           for (var i=0; i<potPlaces.length; i++){
-//             console.log(potPlaces[i].geometry.location.lat());
-//           }
-//       })
-//
-//     });
-//
-//   }).catch(err => {
-//     throw err
-//   });
-//
-// }
