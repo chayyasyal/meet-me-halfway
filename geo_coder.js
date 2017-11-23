@@ -21,18 +21,13 @@
     }
 
 
-    setMarker = function (address) {
+    setMarker = function (address, markerList) {
       _geoCoder.geocode({
         'address': address
       }, function (results, status) {
         if (status === 'OK') {
-          var marker = new google.maps.Marker({
-            map: _map,
-            position: results[0].geometry.location
-          });
-          _map.setCenter(results[0].geometry.location);
-          
-          return [results[0].geometry.location.lat(), results[0].geometry.location.lng()]
+          var marker = new MapMarker(_map, results[0].geometry.location)
+          markerList.addMarkerToList(marker);
         } else {
           alert('Geocode was not successful.Could not set marker for the following reason: ' + status);
         }

@@ -2,6 +2,7 @@ function initializeProject() {
 
   fetch("http://ip-api.com/json").then(res => res.json()).then(function(usersLocation) {
     var mapper = new GoogleMapGenerator(usersLocation);
+    var markersList = MapMarkerList();
 
     var map = mapper.initMap();
 
@@ -13,8 +14,8 @@ function initializeProject() {
       var cafe = document.getElementById('cafe');
       var restaurant = document.getElementById('restaurant');
       var bar = document.getElementById('bar');
-      var address1Points = geocoder.setMarker(address1);
-      var address2Points = geocoder.setMarker(address2);
+      var address1Points = geocoder.setMarker(address1, markersList);
+      var address2Points = geocoder.setMarker(address2, markersList);
 
 
 
