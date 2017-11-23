@@ -15,7 +15,8 @@ In this project we will be using:
 (b) Google Maps API
 (c) HTML
 (d) CSS
-(e) Jasmine 
+(e) Jasmine
+(f) dotenv
 
 ## User Stories
 
