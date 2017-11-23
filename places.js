@@ -13,10 +13,8 @@
       var service = new google.maps.places.PlacesService(map);
       service.nearbySearch(_request, function(results, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
-          // resolve promise with results on OK status
           resolve(results);
         } else {
-          // reject promise otherwise
           reject(status);
         }
       });

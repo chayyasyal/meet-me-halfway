@@ -10,13 +10,18 @@ function initializeProject() {
       var geocoder = new GeoCoder(map);
       var address1 = document.getElementById('address1').value;
       var address2 = document.getElementById('address2').value;
+      var cafe = document.getElementById('cafe');
+      var restaurant = document.getElementById('restaurant');
+      var bar = document.getElementById('bar');
       var address1Points = geocoder.setMarker(address1);
       var address2Points = geocoder.setMarker(address2);
+
+
 
       geocoder.calculateMiddlePoint(address1, address2)
         .then(function(midpoint) {
           console.log(midpoint, "in eventlistener")
-          PlaceSearcher(map, midpoint).then(function(results) {
+          PlaceSearcher(map, midpoint, new Filters().getTypeOfPlace(cafe, restaurant, bar)).then(function(results) {
               console.log("in promise2222", results);
               console.log("in promise length", results.length)
 
