@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Refactored Geocoding service</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+      <div id="floating-panel">
+          <input id="address1" type="textbox" value="makers academy">
+          <input id="address2" type="textbox" value="se83js"> <br>
+          <input id="cafe" type="radio" name="typeOfPlace" value="cafe"> Cafe <br>
+          <input id="restaurant" type="radio" name="typeOfPlace" value="resturant"> Restaurant <br>
+          <input id="bar" type="radio" name="typeOfPlace" value="bar"> Bar <br>
+          <input id="submit" type="button" value="Geocode">
+        </div>
+    <div id="map"></div>
+
+      <script src="google_map_generator.js"></script>
+      <script src="map_marker.js"></script>
+      <script src="map_marker_list.js"></script>
+      <script src="geo_coder.js"></script>
+      <script src="places.js"></script>
+      <script src="filters.js"></script>
+      <script src="index.js"></script>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzf3_dclSEPO7zAq7LW8IaJPyAtnyGrqo
+      &callback=initializeProject&libraries=places">
+    </script>
+  </body>
+  </html>

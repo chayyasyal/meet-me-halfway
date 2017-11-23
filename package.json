@@ -19,6 +19,8 @@
   "homepage": "https://github.com/chayyasyal/meet-me-halfway#readme",
   "dependencies": {
     "express": "^4.16.2",
-    "express-handlebars": "^3.0.0"
-  }
+    "express-handlebars": "^3.0.0",
+    "node-fetch": "^1.7.3"
+  },
+  "devDependencies": {}
 }
